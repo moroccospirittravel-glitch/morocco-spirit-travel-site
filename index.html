@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preload" href="hero.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="hero.mp4" as="video" type="video/mp4" media="(orientation: landscape)">
+  <link rel="preload" href="hero-m.mp4" as="video" type="video/mp4" media="(orientation: portrait)">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Morocco Spirit Travel | Private trips in Morocco</title>
@@ -96,8 +97,8 @@
   <main>
     <div id="view-home">
     <section id="accueil" class="hero">
-      <video id="heroVid" class="hero-vid" autoplay muted loop playsinline preload="auto" aria-hidden="true" src="hero.mp4"></video>
-      <script>(function(){var v=document.getElementById("heroVid"),h=document.getElementById("accueil");function on(){h.classList.add("has-video")}v.addEventListener("playing",on);v.addEventListener("loadeddata",function(){var p=v.play();if(p&&p.catch)p.catch(function(){});});if(v.readyState>=3&&!v.paused)on();})();</script>
+      <video id="heroVid" class="hero-vid" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <script>(function(){var v=document.getElementById("heroVid"),h=document.getElementById("accueil");v.src=(window.matchMedia&&matchMedia("(orientation: portrait)").matches)?"hero-m.mp4":"hero.mp4";function on(){h.classList.add("has-video")}v.addEventListener("playing",on);v.addEventListener("loadeddata",function(){var p=v.play();if(p&&p.catch)p.catch(function(){});});if(v.readyState>=3&&!v.paused)on();})();</script>
       <div class="haze"></div>
       <div class="dune d1"></div>
       <div class="dune d2"></div>
