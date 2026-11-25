@@ -43,9 +43,9 @@
         location.href = "mailto:info@moroccospirittravel.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent("Hello Morocco Spirit Travel,\n\n" + lines.join("\n"));
       }
       btn.disabled = true; btn.classList.add("fly"); set(1);
-      var done = false, t = setTimeout(function () { if (!done) { done = true; fallback(); } }, 12000);
+      var done = false, t = setTimeout(function () { if (!done) { done = true; fallback(); } }, 30000);
       fetch("https://formsubmit.co/ajax/info@moroccospirittravel.com", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) })
-        .then(function (r) { return r.json(); })
+        .then(function (r) { return r.json().catch(function () { return { success: r.ok }; }); })
         .then(function (j) { if (done) return; done = true; clearTimeout(t); if (j && (j.success === true || j.success === "true")) { btn.classList.remove("fly"); btn.disabled = false; set(2); if (clear) clear(); } else fallback(); })
         .catch(function () { if (done) return; done = true; clearTimeout(t); fallback(); });
     };
